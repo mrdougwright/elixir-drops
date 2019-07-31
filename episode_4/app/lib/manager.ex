@@ -1,17 +1,12 @@
 defmodule Manager do
-  # def setup_user(params) do
-  #   user = User.create(params)
-  #   user = User.send_email(user)
-  #   User.start_trial(user)
-  # end
 
-  # def setup_user(params) do
-  #   params
-  #   |> User.create()
-  #   |> User.send_email()
-  #   |> User.start_trial()
-  # end
-  
+  def setup_user(params) do
+    params
+    |> User.create()
+    |> User.send_email()
+    |> User.start_trial()
+  end
+
   def setup_user(params) do
     with {:ok, %{email: email} = user} <- Ekto.save_user(params),
       {:ok, msg1} <- SentGrid.send_email(email),

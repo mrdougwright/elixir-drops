@@ -16,7 +16,6 @@ defmodule SentGrid do
   def send_email(:marketing) do
     {:ok, "Marketing email sent."}
   end
-
   def send_email(:support), do: {:ok, "Support email sent."}
   def send_email(:other), do: {:ok, "Other email sent."}
   def send_email(_), do: {:error, "Invalid email type."}

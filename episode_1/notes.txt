@@ -1,4 +1,4 @@
 Variables, Data Types & Matching
  - match operator
- - atoms, lists, maps & tuples
+ - atoms, tuples, lists & maps
  - modules & functions
