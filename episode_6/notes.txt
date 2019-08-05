@@ -1,0 +1,6 @@
+mix new app
+- mix compile
+- iex -S mix
+- mix.exs
+- deps
+- docs
