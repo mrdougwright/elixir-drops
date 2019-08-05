@@ -1,0 +1,5 @@
+Enum.reduce
+Enum.find
+Map.put
+Map.get
+List.first
