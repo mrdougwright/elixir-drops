@@ -1,0 +1,29 @@
+## Process
+- process functions: list, alive?, info, put
+Process.list
+self
+pid = Process.list |> Enum.random
+Process.alive?(pid)
+Process.info(pid)
+
+
+- spawn
+pid = spawn(fn -> IO.puts("hello!") end)
+pid = spawn(fn -> receive do :hi -> "hi" end end)
+send pid, {:note, "a note"}
+Process.info(pid, :messages)
+h spawn
+
+
+## Task
+- used to one off a process, generally when unconcerned with return
+call_api = fn -> :timer.sleep(20000); IO.puts "done!" end
+{:ok, pid} = Task.start(call_api)
+Process.alive? pid
+
+
+## Agent
+- Used to hold state
+- send messages
+Process.put(key, val) -> better to use Agent
+write code with `use Agent`
