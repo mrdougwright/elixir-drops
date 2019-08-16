@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+  </head>
+  <body>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <div class="notification is-success">
+            </div>
+            <div class="box">
+              <div class="field">
+                <label class="label">City</label>
+                <div class="control">
+                  <input class="input city" type="text" placeholder="Enter city to see weather...">
+                </div>
+              </div>
+
+              <div class="field is-grouped has-text-centered">
+                <div class="control">
+                  <button class="submit button is-link is-large">
+                    <span>Submit</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $(function(){
+        var notification = $('.notification');
+        notification.hide();
+
+        $('button.submit').click(function() {
+          var body = {
+            city: $('input.city').val()
+          };
+
+          $.ajax({
+            type: 'POST',
+            url: '/fetch',
+            data: JSON.stringify(body),
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            success: function(data) {
+              $('.notification').html(`${data.temp} celsius`).show();
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+              console.log(textStatus)
+              console.log(errorThrown)
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
