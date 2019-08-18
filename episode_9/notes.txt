@@ -1,0 +1,15 @@
+some ideas:
+use a GenServer for concurrency
+- show a basic GenServer
+- show looping with handle_info
+- show :observer.start with debugging Looper
+
+defmodule Looper do
+  def loop(x) do
+    IO.inspect self()
+    :timer.sleep(100)
+    x = x + 1
+    IO.puts(x)
+    Looper.loop(x)
+  end
+end
