@@ -1,0 +1,6 @@
+# Supervisor
+Process supervising other processes
+three things: start, restart and terminate child processes
+run Unreliable
+run with Supervisor
+start app with Application, running Supervisor, running Unreliable
