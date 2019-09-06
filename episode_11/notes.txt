@@ -1,8 +1,0 @@
-Episode 10 -
-Learn how to write ETS tables in Elixir.
-Erlang Term Storage (ets) is a popular memory caching technique used in Erlang and Elixir. In this video we look at some ETS functions:
-- new
-- insert
-- lookup
-- delete
-- match_object
