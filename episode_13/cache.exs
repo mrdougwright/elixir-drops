@@ -7,6 +7,7 @@ defmodule Cache do
 
   def init(:ok) do
     :ets.new(:cache, [:public, :named_table, read_concurrency: true])
+
     {:ok, :ready}
   end
 
