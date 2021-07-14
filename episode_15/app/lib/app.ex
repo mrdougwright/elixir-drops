@@ -4,7 +4,7 @@ defmodule App do
   """
 
   @doc """
-  Hello world.
+  Hello World.
 
   ## Examples
 
