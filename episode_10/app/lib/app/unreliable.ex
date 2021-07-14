@@ -11,11 +11,11 @@ defmodule App.Unreliable do
   end
 
   def handle_info(:run, state) do
-    IO.inspect state
+    IO.inspect(state)
     run_process()
 
     num =
-      [1,2,3,"four"]
+      [1, 2, 3, "four"]
       |> Enum.random()
       |> Kernel.+(0)
 
