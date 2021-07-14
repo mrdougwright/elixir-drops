@@ -1,7 +1,6 @@
 defmodule Stock.API do
-
   def price(symbol) do
-    stocks[symbol] |> Enum.random
+    stocks[symbol] |> Enum.random()
   end
 
   def stocks do
@@ -14,7 +13,7 @@ defmodule Stock.API do
 
   def latest_prices do
     stocks
-    |> Enum.reduce(%{}, fn({sym,_}, acc) ->
+    |> Enum.reduce(%{}, fn {sym, _}, acc ->
       Map.put(acc, sym, price(sym))
     end)
   end

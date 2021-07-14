@@ -1,6 +1,7 @@
 defmodule Ticker do
   use GenServer
-  @name MyTicker # versus using pid
+  # versus using pid
+  @name MyTicker
 
   # Client
   def start_link do
