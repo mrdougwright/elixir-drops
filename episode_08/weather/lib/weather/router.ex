@@ -1,12 +1,14 @@
 defmodule Weather.Router do
   use Plug.Router
 
-  plug Plug.Parsers, parsers: [:json],
-                     pass: ["text/*"],
-                     json_decoder: Jason
+  plug(Plug.Parsers,
+    parsers: [:json],
+    pass: ["text/*"],
+    json_decoder: Jason
+  )
 
-  plug :match
-  plug :dispatch
+  plug(:match)
+  plug(:dispatch)
 
   get "/" do
     render(conn, "index.html")
@@ -33,11 +35,11 @@ defmodule Weather.Router do
       |> String.replace_suffix(".html", ".html.eex")
       |> EEx.eval_file(assigns)
 
-    send_resp(conn, (status || 200), body)
+    send_resp(conn, status || 200, body)
   end
 
   defp render_json(%{status: status} = conn, data) do
     body = Jason.encode!(data)
-    send_resp(conn, (status || 200), body)
+    send_resp(conn, status || 200, body)
   end
 end
