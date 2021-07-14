@@ -1,5 +1,4 @@
 defmodule Book do
-
   def start do
     Agent.start(fn -> %{} end, name: __MODULE__)
   end
