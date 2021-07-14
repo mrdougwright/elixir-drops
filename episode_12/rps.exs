@@ -1,5 +1,5 @@
 # Rock, Paper, Scissors
-# players = letters, i.e. "RPSPRS"
+# players are letters, i.e. "RPSPRS"
 # answer -> P, S, R
 
 defmodule RPS do
